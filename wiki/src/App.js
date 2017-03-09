@@ -162,33 +162,31 @@ class App extends Component {
     }
 
     if (this.state.process === false) {
-      loadingAnim = (this.state.words.map((element,int) => {
+      loadingAnim = (this.state.words.map((element, int) => {
 
         let animation = {
 
-        animationDuration: `${int/2}s`,
-        animationFillMode: "both",
-        animationDelay: int,
-        color: `rgb(${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)})`,
-        display: "block"
-      }
+          animationDuration: `${int / 2}s`,
+          animationFillMode: "both",
+          animationDelay: int,
+          color: `rgb(${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)})`,
+          display: "block",
+          padding: "10px",
+          fontSize: "40px"
+        }
 
-      
+        return <a target="_blank" href={"https://en.wikipedia.org/wiki/" + element.replace(/ /g, "_")} style={animation} className="slideInDown">{element}</a>
+      }))
+    }
 
-
-
-        return <a target="_blank" href={"https://en.wikipedia.org/wiki/" + element.replace(/ /g,"_")}  style={animation} className="slideInDown">{element}</a>
-    }))
-  }
-
-  return(
+    return (
       <div className="App">
-  <div className="arrayDisplay">
+        <div className="arrayDisplay">
 
-    {loadingAnim}
+          {loadingAnim}
 
-  </div>
-</div>
+        </div>
+      </div>
     );
   }
 }
