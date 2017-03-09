@@ -169,15 +169,15 @@ class App extends Component {
         animationDuration: `${int/2}s`,
         animationFillMode: "both",
         animationDelay: int,
-        color: `rgb(${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)})`
-
+        color: `rgb(${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)})`,
+        display: "block"
       }
 
       
 
 
 
-        return <p  style={animation} className="slideInDown">{element}</p>
+        return <a target="_blank" href={"https://en.wikipedia.org/wiki/" + element.replace(/ /g,"_")}  style={animation} className="slideInDown">{element}</a>
     }))
   }
 
