@@ -7,6 +7,7 @@ color: white;
 body{
     background-color:black;
     font-family: monospace;
+    text-align: center;
 }
 a {
   text-decoration: none
