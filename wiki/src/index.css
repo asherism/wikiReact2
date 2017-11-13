@@ -18,6 +18,21 @@ html {
   box-sizing:border-box;
 }
 
+.arrayDisplay a {
+  font-size: 40px;
+  display: block;
+  padding: 10px;
+}
+
+@media (max-width: 900px) {
+  .arrayDisplay {
+    padding: 0% 0 5% 2%;
+  }
+  .arrayDisplay a {
+    font-size: 17px;
+  }
+}
+
 body {
   background-color: slateblue;
   font-family: monospace;

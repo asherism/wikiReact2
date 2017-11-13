@@ -2,8 +2,17 @@ import React, { Component } from "react";
 
 import getConcatArray from "./wiki.js";
 
-let words = "";
+
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      words: [],
+      process: true,
+      updated: false
+    };
+  }
+  
   componentWillMount() {
     getConcatArray()
       .then(concatArray => {
@@ -27,15 +36,6 @@ class App extends Component {
     }
   }
 
-  constructor() {
-    super();
-    this.state = {
-      words: [],
-      process: true,
-      updated: false
-    };
-  }
-
   render() {
     let loadingAnim;
     let colors = [
@@ -49,7 +49,6 @@ class App extends Component {
       "Black",
       "BlanchedAlmond",
       "Blue",
-      "BlueViolet",
       "Brown",
       "BurlyWood",
       "CadetBlue",
@@ -80,7 +79,6 @@ class App extends Component {
       "DeepSkyBlue",
       "DodgerBlue",
       "FloralWhite",
-      "ForestGreen",
       "Fuchsia",
       "Gainsboro",
       "GhostWhite",
@@ -183,10 +181,7 @@ class App extends Component {
           animationDuration: `${index / 2}s`,
           animationFillMode: "both",
           animationDelay: index,
-          color: colors[Math.floor(Math.random() * colors.length)],
-          display: "block",
-          padding: "10px",
-          fontSize: "40px"
+          color: colors[Math.floor(Math.random() * colors.length)]
         };
 
         return (
