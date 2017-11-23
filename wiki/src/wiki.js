@@ -1,8 +1,8 @@
-import wiki from "wikijs";
+import wiki from 'wikijs';
 
 let wikiArray = [];
 let concatArray = [];
-let newWordQuery = "";
+let newWordQuery = '';
 let newWordArray = [];
 let secondSearchArray = [];
 
@@ -10,58 +10,45 @@ function randomize() {
   return new Promise((resolve, reject) => {
     wiki()
       .random()
-      .then(function(page) {
-        //if random results ends in "disambiguation" run random again
+      .then((page) => {
+        // if random results ends in "disambiguation" run random again
         concatArray = wikiArray.concat(page);
-        console.log("Starting thread...", concatArray);
+        console.log('Starting thread...', concatArray);
       })
       .then(() => {
-        let lastSentence = concatArray[concatArray.length - 1];
+        const lastSentence = concatArray[concatArray.length - 1];
         // console.log(lastSentence + " B");
 
-        let newWordQuery = lastSentence
-          .split(" ")
+        newWordQuery = lastSentence
+          .split(' ')
           .pop()
-          .replace(/[{()}]/g, "");
-        //console.log(newWordQuery + " C");
-        //concatArray.push(newWordQuery);
+          .replace(/[{()}]/g, '');
+        // console.log(newWordQuery + " C");
+        // concatArray.push(newWordQuery);
         resolve(newWordQuery);
       })
-      .catch(err => {
+      .catch((err) => {
         reject(err);
       });
   });
 }
 
-function getConcatArray() {
-  return new Promise((resolve, reject) => {
-    const randomPromise = randomize();
-
-    randomPromise.then(newWordQuery => {
-      randomSearch(newWordQuery, (err, concatArray) => {
-        console.log(concatArray);
-        return resolve(concatArray);
-      });
-    });
-  });
-}
 // console.log(randomPromise)
-String.prototype.capitalize = function() {
+String.prototype.capitalize = function () {
   return this.charAt(0).toUpperCase() + this.slice(1);
 };
 
 function randomSearch(randomPromise, cb) {
-  //return new Promise((resolve, reject) => {
+  // return new Promise((resolve, reject) => {
   wiki()
     .search(randomPromise, 100)
-    .then(data => {
+    .then((data) => {
       // console.log(data.results);
       for (let i = 0; i < data.results.length; i++) {
         if (
-          data.results[i].split(" ")[0] === randomPromise.capitalize() &&
-          data.results[i].split(" ").length > 1 &&
-          data.results[i].split(" ")[data.results[i].split(" ").length - 1] !==
-            "(disambiguation)"
+          data.results[i].split(' ')[0] === randomPromise.capitalize() &&
+          data.results[i].split(' ').length > 1 &&
+          data.results[i].split(' ')[data.results[i].split(' ').length - 1] !== '(disambiguation)'
         ) {
           // console.log(data.results[i])
           newWordArray.push(data.results[i]);
@@ -70,17 +57,16 @@ function randomSearch(randomPromise, cb) {
       }
       if (newWordArray.length > 1) {
         // console.log(newWordArray + " D")
-        let secondSearchQeury =
-          newWordArray[Math.floor(Math.random() * newWordArray.length)];
+        const secondSearchQeury = newWordArray[Math.floor(Math.random() * newWordArray.length)];
         concatArray.push(secondSearchQeury);
-        let newSecondSearchQuery = secondSearchQeury
-          .split(" ")
+        const newSecondSearchQuery = secondSearchQeury
+          .split(' ')
           .pop()
-          .replace(/[{()}]/g, "");
-        //let newWordQuery = newSecondSearchQuery;
+          .replace(/[{()}]/g, '');
+        // let newWordQuery = newSecondSearchQuery;
         newWordArray = [];
         if (concatArray.length >= 10) {
-          console.log("here");
+          console.log('here');
           return cb(null, concatArray);
         }
         randomSearch(newSecondSearchQuery.capitalize(), cb);
@@ -89,17 +75,31 @@ function randomSearch(randomPromise, cb) {
       } else {
         wikiArray = [];
         concatArray = [];
-        newWordQuery = "";
+        newWordQuery = '';
         newWordArray = [];
         secondSearchArray = [];
-        //randomize();
-        randomize().then(newWordQuery => {
-          let searchPromise = randomSearch(newWordQuery, cb);
+        // randomize();
+        randomize().then((newWordQuery) => {
+          // const searchPromise =
+          randomSearch(newWordQuery, cb);
         });
       }
     });
 
   // })
+}
+
+function getConcatArray() {
+  return new Promise((resolve, reject) => {
+    const randomPromise = randomize();
+
+    randomPromise.then((newWordQuery) => {
+      randomSearch(newWordQuery, (err, concatArray) => {
+        console.log(concatArray);
+        return resolve(concatArray);
+      });
+    });
+  });
 }
 
 export default getConcatArray;
