@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import getConcatArray from './wiki';
+import { getConcatArray, concatArray } from './wiki';
 
 class App extends Component {
   constructor() {
@@ -15,7 +15,7 @@ class App extends Component {
   componentWillMount() {
     getConcatArray()
       .then((concatArray) => {
-        console.log(concatArray);
+        // console.log(concatArray);
         this.setState({
           words: concatArray,
           process: false,
@@ -127,7 +127,6 @@ class App extends Component {
       'NavajoWhite',
       'Navy',
       'OldLace',
-      'Olive',
       'OliveDrab',
       'Orange',
       'OrangeRed',
@@ -153,8 +152,6 @@ class App extends Component {
       'Sienna',
       'Silver',
       'SkyBlue',
-      'SlateGray',
-      'SlateGrey',
       'Snow',
       'SpringGreen',
       'SteelBlue',
@@ -177,9 +174,6 @@ class App extends Component {
     if (this.state.process === false) {
       loadingAnim = this.state.words.map((element, index) => {
         const animation = {
-          animationDuration: `${index / 2}s`,
-          animationFillMode: 'both',
-          animationDelay: index,
           color: colors[Math.floor(Math.random() * colors.length)],
         };
 

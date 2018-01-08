@@ -6,9 +6,13 @@ let newWordQuery = '';
 let newWordArray = [];
 let secondSearchArray = [];
 
+document.getElementsByClassName('arrayDisplay').innerHTML = concatArray;
+
 function randomize() {
   return new Promise((resolve, reject) => {
-    wiki()
+    wiki({
+      // origin: "http://10.0.1.225:3000"
+    })
       .random()
       .then((page) => {
         // if random results ends in "disambiguation" run random again
@@ -102,4 +106,4 @@ function getConcatArray() {
   });
 }
 
-export default getConcatArray;
+export { getConcatArray, concatArray };
