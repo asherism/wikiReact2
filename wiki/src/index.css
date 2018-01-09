@@ -3,32 +3,58 @@ html {
   height: 100vh;
 }
 
-
-.arrayDisplay > p {
-  color: white;
+.App {
+  /* padding: 5% 0 5% 2%; */
 }
-
+.App p {
+  color: plum;
+  margin: 10px 0 5px 0;
+}
 .arrayDisplay {
+  height: 20vh;
+  justify-content: flex-start;
+  background-color: black;
+}
+.arrayDisplay2 {
+  height: 80vh;
+  padding-left: 20px;
+  justify-content: space-evenly;
+}
+.arrayDisplay,
+.arrayDisplay2 {
   display: flex;
+  overflow: auto;
   flex-direction: column;
-  justify-content: space-between;
+  
   width: 100%;
-  height: 100%;
-  padding: 5% 0 5% 10%;
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
 
 .arrayDisplay a {
+  font-size: 14px;
+  color: lime;
+  display: block;
+}
+.arrayDisplay a:hover {
+  text-decoration: none;
+  cursor: default;
+}
+.arrayDisplay2 a {
   font-size: 18px;
   display: block;
-  padding: 10px;
+}
+.arrayDisplay2 p {
+  color: white;
+  margin-bottom: auto;
 }
 
 @media (max-width: 900px) {
-  .arrayDisplay {
-    padding: 0% 0 5% 2%;
-  }
+
   .arrayDisplay a {
+    font-size: 11px;
+    line-height: 14px;
+  }
+  .arrayDisplay2 a {
     font-size: 17px;
   }
 }
@@ -50,7 +76,6 @@ body {
   width: 100%;
   height: 100%;
 }
-
 
 a {
   text-decoration: none;

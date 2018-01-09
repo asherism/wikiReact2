@@ -6,8 +6,13 @@ let newWordQuery = '';
 let newWordArray = [];
 let secondSearchArray = [];
 
-document.getElementsByClassName('arrayDisplay').innerHTML = concatArray;
+let docObj;
 
+document.addEventListener('DOMContentLoaded', () => {
+  docObj = document.getElementsByClassName('arrayDisplay');
+  console.log(docObj[0]);
+});
+const die = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
 function randomize() {
   return new Promise((resolve, reject) => {
     wiki({
@@ -18,6 +23,12 @@ function randomize() {
         // if random results ends in "disambiguation" run random again
         concatArray = wikiArray.concat(page);
         console.log('Starting thread...', concatArray);
+        docObj[0].insertAdjacentHTML(
+          'beforeend',
+          `<p>${die[Math.floor(Math.random() * die.length)]} New thread</p>`,
+        );
+        docObj[0].insertAdjacentHTML('beforeend', `<a>→ ${concatArray}</a>`);
+        docObj[0].scrollTop = docObj[0].scrollHeight;
       })
       .then(() => {
         const lastSentence = concatArray[concatArray.length - 1];
@@ -76,6 +87,8 @@ function randomSearch(randomPromise, cb) {
         randomSearch(newSecondSearchQuery.capitalize(), cb);
         // console.log(newSecondSearchQuery + " E");
         console.log(concatArray);
+        docObj[0].insertAdjacentHTML('beforeend', `<a>${concatArray}</a>`);
+        docObj[0].scrollTop = docObj[0].scrollHeight;
       } else {
         wikiArray = [];
         concatArray = [];
