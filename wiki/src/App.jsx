@@ -46,7 +46,6 @@ class App extends Component {
       'Beige',
       'Bisque',
       'BlanchedAlmond',
-      'Brown',
       'BurlyWood',
       'Chartreuse',
       'Chocolate',
