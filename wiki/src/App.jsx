@@ -94,8 +94,6 @@ class App extends Component {
       'Linen',
       'Magenta',
       'MediumAquaMarine',
-      'MediumBlue',
-      'MediumOrchid',
       'MediumSeaGreen',
       'MediumSpringGreen',
       'MediumTurquoise',
