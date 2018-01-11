@@ -15,7 +15,7 @@ const die = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
 function randomize() {
   return new Promise((resolve, reject) => {
     wiki({
-      origin: "http://54.190.35.210/"
+      origin: 'http://54.190.35.210',
     })
       .random()
       .then((page) => {
@@ -78,7 +78,10 @@ function randomSearch(randomPromise, cb) {
         newWordArray = [];
         if (concatArray.length >= 10) {
           console.log('here');
-          docObj[0].insertAdjacentHTML('beforeend', '<a onClick="window.location.reload()" class="try-again">🔁 Try again?</a>');
+          docObj[0].insertAdjacentHTML(
+            'beforeend',
+            '<a onClick="window.location.reload()" class="try-again">🔁 Try again?</a>',
+          );
           docObj[0].scrollTop = docObj[0].scrollHeight;
           return cb(null, concatArray);
         }

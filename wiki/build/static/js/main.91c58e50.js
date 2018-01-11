@@ -8276,7 +8276,7 @@
 	function randomize() {
 	  return new Promise(function (resolve, reject) {
 	    (0, _wikijs2.default)({
-	      origin: "http://54.190.35.210/"
+	      origin: 'http://54.190.35.210'
 	    }).random().then(function (page) {
 	      // if random results ends in "disambiguation" run random again
 	      exports.concatArray = concatArray = wikiArray.concat(page);
@@ -22464,4 +22464,4 @@
 
 /***/ }
 /******/ ])));
-//# sourceMappingURL=main.deab8982.js.map
+//# sourceMappingURL=main.91c58e50.js.map
