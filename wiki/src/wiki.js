@@ -14,9 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const die = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
 function randomize() {
   return new Promise((resolve, reject) => {
-    wiki({
-      origin: 'http://54.190.35.210',
-    })
+    wiki()
       .random()
       .then((page) => {
         // if random results ends in "disambiguation" run random again
