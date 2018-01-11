@@ -11,7 +11,6 @@ let docObj;
 document.addEventListener('DOMContentLoaded', () => {
   docObj = document.getElementsByClassName('arrayDisplay');
 });
-const die = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
 function randomize() {
   return new Promise((resolve, reject) => {
     wiki()
