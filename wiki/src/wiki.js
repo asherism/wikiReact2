@@ -15,7 +15,7 @@ const die = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
 function randomize() {
   return new Promise((resolve, reject) => {
     wiki({
-      // origin: "http://10.0.1.225:3000"
+      origin: "http://54.190.35.210/"
     })
       .random()
       .then((page) => {

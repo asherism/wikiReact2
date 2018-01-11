@@ -8276,7 +8276,7 @@
 	function randomize() {
 	  return new Promise(function (resolve, reject) {
 	    (0, _wikijs2.default)({
-	      // origin: "http://10.0.1.225:3000"
+	      origin: "http://54.190.35.210/"
 	    }).random().then(function (page) {
 	      // if random results ends in "disambiguation" run random again
 	      exports.concatArray = concatArray = wikiArray.concat(page);
@@ -20362,7 +20362,7 @@
 	    key: 'render',
 	    value: function render() {
 	      var loadingAnim = void 0;
-	      var colors = ['AliceBlue', 'AntiqueWhite', 'Aqua', 'Aquamarine', 'Azure', 'Beige', 'Bisque', 'BlanchedAlmond', 'BurlyWood', 'Chartreuse', 'Chocolate', 'Coral', 'Cornsilk', 'Cyan', 'DarkGoldenRod', 'DarkKhaki', 'Darkorange', 'DarkSalmon', 'DarkSeaGreen', 'DarkTurquoise', 'DeepPink', 'DeepSkyBlue', 'FloralWhite', 'Fuchsia', 'Gainsboro', 'GhostWhite', 'Gold', 'GoldenRod', 'GreenYellow', 'HoneyDew', 'HotPink', 'IndianRed', 'Ivory', 'Khaki', 'Lavender', 'LavenderBlush', 'LawnGreen', 'LemonChiffon', 'LightBlue', 'LightCoral', 'LightCyan', 'LightGoldenRodYellow', 'LightGray', 'LightGrey', 'LightGreen', 'LightPink', 'LightSalmon', 'LightSkyBlue', 'LightSteelBlue', 'LightYellow', 'Lime', 'LimeGreen', 'Linen', 'Magenta', 'MediumAquaMarine', 'MediumSeaGreen', 'MediumSpringGreen', 'MediumTurquoise', 'MintCream', 'MistyRose', 'Moccasin', 'NavajoWhite', 'OldLace', 'Orange', 'OrangeRed', 'Orchid', 'PaleGoldenRod', 'PaleGreen', 'PaleTurquoise', 'PaleVioletRed', 'PapayaWhip', 'PeachPuff', 'Peru', 'Pink', 'Plum', 'PowderBlue', 'Red', 'RosyBrown', 'Salmon', 'SandyBrown', 'SeaShell', 'Silver', 'SkyBlue', 'Snow', 'SpringGreen', 'Tan', 'Thistle', 'Tomato', 'Turquoise', 'Violet', 'Wheat', 'White', 'WhiteSmoke', 'Yellow', 'YellowGreen'];
+	      var colors = ['AliceBlue', 'AntiqueWhite', 'Aqua', 'Aquamarine', 'Azure', 'Beige', 'Bisque', 'BlanchedAlmond', 'BurlyWood', 'Chartreuse', 'Chocolate', 'Coral', 'Cornsilk', 'Cyan', 'DarkGoldenRod', 'DarkKhaki', 'Darkorange', 'DarkSalmon', 'DarkSeaGreen', 'DarkTurquoise', 'DeepPink', 'DeepSkyBlue', 'FloralWhite', 'Fuchsia', 'Gainsboro', 'GhostWhite', 'Gold', 'GoldenRod', 'GreenYellow', 'HoneyDew', 'HotPink', 'IndianRed', 'Ivory', 'Khaki', 'Lavender', 'LavenderBlush', 'LawnGreen', 'LemonChiffon', 'LightBlue', 'LightCoral', 'LightCyan', 'LightGoldenRodYellow', 'LightGray', 'LightGrey', 'LightGreen', 'LightPink', 'LightSalmon', 'LightSkyBlue', 'LightSteelBlue', 'LightYellow', 'Lime', 'LimeGreen', 'Linen', 'Magenta', 'MediumAquaMarine', 'MediumSeaGreen', 'MediumSpringGreen', 'MediumTurquoise', 'MintCream', 'MistyRose', 'Moccasin', 'NavajoWhite', 'OldLace', 'Orange', 'OrangeRed', 'Orchid', 'PaleGoldenRod', 'PaleGreen', 'PaleTurquoise', 'PaleVioletRed', 'PapayaWhip', 'PeachPuff', 'Peru', 'Pink', 'Plum', 'PowderBlue', 'Red', 'RosyBrown', 'Salmon', 'SandyBrown', 'SeaShell', 'SkyBlue', 'Snow', 'SpringGreen', 'Tan', 'Thistle', 'Tomato', 'Turquoise', 'Violet', 'Wheat', 'White', 'WhiteSmoke', 'Yellow', 'YellowGreen'];
 	
 	      if (this.state.process === true) {
 	        loadingAnim = _react2.default.createElement(
@@ -22464,4 +22464,4 @@
 
 /***/ }
 /******/ ])));
-//# sourceMappingURL=main.7a8910e8.js.map
+//# sourceMappingURL=main.deab8982.js.map

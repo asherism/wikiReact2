@@ -119,7 +119,6 @@ class App extends Component {
       'Salmon',
       'SandyBrown',
       'SeaShell',
-      'Silver',
       'SkyBlue',
       'Snow',
       'SpringGreen',
