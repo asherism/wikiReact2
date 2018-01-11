@@ -10,7 +10,6 @@ let docObj;
 
 document.addEventListener('DOMContentLoaded', () => {
   docObj = document.getElementsByClassName('arrayDisplay');
-  console.log(docObj[0]);
 });
 const die = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
 function randomize() {
@@ -23,10 +22,7 @@ function randomize() {
         // if random results ends in "disambiguation" run random again
         concatArray = wikiArray.concat(page);
         console.log('Starting thread...', concatArray);
-        docObj[0].insertAdjacentHTML(
-          'beforeend',
-          `<p>${die[Math.floor(Math.random() * die.length)]} New thread</p>`,
-        );
+        docObj[0].insertAdjacentHTML('beforeend', '<p>🔮 New thread</p>');
         docObj[0].insertAdjacentHTML('beforeend', `<a>→ ${concatArray}</a>`);
         docObj[0].scrollTop = docObj[0].scrollHeight;
       })
@@ -82,6 +78,8 @@ function randomSearch(randomPromise, cb) {
         newWordArray = [];
         if (concatArray.length >= 10) {
           console.log('here');
+          docObj[0].insertAdjacentHTML('beforeend', '<a onClick="window.location.reload()" class="try-again">🔁 Try again?</a>');
+          docObj[0].scrollTop = docObj[0].scrollHeight;
           return cb(null, concatArray);
         }
         randomSearch(newSecondSearchQuery.capitalize(), cb);
