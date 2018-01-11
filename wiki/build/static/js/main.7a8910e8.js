@@ -8271,7 +8271,6 @@
 	
 	document.addEventListener('DOMContentLoaded', function () {
 	  docObj = document.getElementsByClassName('arrayDisplay');
-	  console.log(docObj[0]);
 	});
 	var die = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
 	function randomize() {
@@ -8282,7 +8281,7 @@
 	      // if random results ends in "disambiguation" run random again
 	      exports.concatArray = concatArray = wikiArray.concat(page);
 	      console.log('Starting thread...', concatArray);
-	      docObj[0].insertAdjacentHTML('beforeend', '<p>' + die[Math.floor(Math.random() * die.length)] + ' New thread</p>');
+	      docObj[0].insertAdjacentHTML('beforeend', '<p>🔮 New thread</p>');
 	      docObj[0].insertAdjacentHTML('beforeend', '<a>\u2192 ' + concatArray + '</a>');
 	      docObj[0].scrollTop = docObj[0].scrollHeight;
 	    }).then(function () {
@@ -8324,6 +8323,8 @@
 	      newWordArray = [];
 	      if (concatArray.length >= 10) {
 	        console.log('here');
+	        docObj[0].insertAdjacentHTML('beforeend', '<a onClick="window.location.reload()" class="try-again">🔁 Try again?</a>');
+	        docObj[0].scrollTop = docObj[0].scrollHeight;
 	        return cb(null, concatArray);
 	      }
 	      randomSearch(newSecondSearchQuery.capitalize(), cb);
@@ -20361,7 +20362,7 @@
 	    key: 'render',
 	    value: function render() {
 	      var loadingAnim = void 0;
-	      var colors = ['AliceBlue', 'AntiqueWhite', 'Aqua', 'Aquamarine', 'Azure', 'Beige', 'Bisque', 'BlanchedAlmond', 'Brown', 'BurlyWood', 'Chartreuse', 'Chocolate', 'Coral', 'Cornsilk', 'Cyan', 'DarkGoldenRod', 'DarkKhaki', 'Darkorange', 'DarkSalmon', 'DarkSeaGreen', 'DarkTurquoise', 'DeepPink', 'DeepSkyBlue', 'FloralWhite', 'Fuchsia', 'Gainsboro', 'GhostWhite', 'Gold', 'GoldenRod', 'GreenYellow', 'HoneyDew', 'HotPink', 'IndianRed', 'Ivory', 'Khaki', 'Lavender', 'LavenderBlush', 'LawnGreen', 'LemonChiffon', 'LightBlue', 'LightCoral', 'LightCyan', 'LightGoldenRodYellow', 'LightGray', 'LightGrey', 'LightGreen', 'LightPink', 'LightSalmon', 'LightSkyBlue', 'LightSteelBlue', 'LightYellow', 'Lime', 'LimeGreen', 'Linen', 'Magenta', 'MediumAquaMarine', 'MediumSeaGreen', 'MediumSpringGreen', 'MediumTurquoise', 'MintCream', 'MistyRose', 'Moccasin', 'NavajoWhite', 'OldLace', 'Orange', 'OrangeRed', 'Orchid', 'PaleGoldenRod', 'PaleGreen', 'PaleTurquoise', 'PaleVioletRed', 'PapayaWhip', 'PeachPuff', 'Peru', 'Pink', 'Plum', 'PowderBlue', 'Red', 'RosyBrown', 'Salmon', 'SandyBrown', 'SeaShell', 'Silver', 'SkyBlue', 'Snow', 'SpringGreen', 'Tan', 'Thistle', 'Tomato', 'Turquoise', 'Violet', 'Wheat', 'White', 'WhiteSmoke', 'Yellow', 'YellowGreen'];
+	      var colors = ['AliceBlue', 'AntiqueWhite', 'Aqua', 'Aquamarine', 'Azure', 'Beige', 'Bisque', 'BlanchedAlmond', 'BurlyWood', 'Chartreuse', 'Chocolate', 'Coral', 'Cornsilk', 'Cyan', 'DarkGoldenRod', 'DarkKhaki', 'Darkorange', 'DarkSalmon', 'DarkSeaGreen', 'DarkTurquoise', 'DeepPink', 'DeepSkyBlue', 'FloralWhite', 'Fuchsia', 'Gainsboro', 'GhostWhite', 'Gold', 'GoldenRod', 'GreenYellow', 'HoneyDew', 'HotPink', 'IndianRed', 'Ivory', 'Khaki', 'Lavender', 'LavenderBlush', 'LawnGreen', 'LemonChiffon', 'LightBlue', 'LightCoral', 'LightCyan', 'LightGoldenRodYellow', 'LightGray', 'LightGrey', 'LightGreen', 'LightPink', 'LightSalmon', 'LightSkyBlue', 'LightSteelBlue', 'LightYellow', 'Lime', 'LimeGreen', 'Linen', 'Magenta', 'MediumAquaMarine', 'MediumSeaGreen', 'MediumSpringGreen', 'MediumTurquoise', 'MintCream', 'MistyRose', 'Moccasin', 'NavajoWhite', 'OldLace', 'Orange', 'OrangeRed', 'Orchid', 'PaleGoldenRod', 'PaleGreen', 'PaleTurquoise', 'PaleVioletRed', 'PapayaWhip', 'PeachPuff', 'Peru', 'Pink', 'Plum', 'PowderBlue', 'Red', 'RosyBrown', 'Salmon', 'SandyBrown', 'SeaShell', 'Silver', 'SkyBlue', 'Snow', 'SpringGreen', 'Tan', 'Thistle', 'Tomato', 'Turquoise', 'Violet', 'Wheat', 'White', 'WhiteSmoke', 'Yellow', 'YellowGreen'];
 	
 	      if (this.state.process === true) {
 	        loadingAnim = _react2.default.createElement(
@@ -22463,4 +22464,4 @@
 
 /***/ }
 /******/ ])));
-//# sourceMappingURL=main.67b27034.js.map
+//# sourceMappingURL=main.7a8910e8.js.map

@@ -17,6 +17,15 @@ html {
           justify-content: flex-start;
   background-color: black;
 }
+.arrayDisplay a.try-again:hover {
+  cursor: pointer;
+}
+.arrayDisplay a.try-again {
+  margin-bottom: 12px;
+  margin-top: 6px;
+  font-size: 13px;
+  color: papayawhip;
+}
 .arrayDisplay2 {
   height: 80vh;
   padding-left: 20px;
@@ -34,7 +43,7 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  
+
   width: 100%;
   box-sizing: border-box;
 }
@@ -58,7 +67,6 @@ html {
 }
 
 @media (max-width: 900px) {
-
   .arrayDisplay a {
     font-size: 11px;
     line-height: 14px;
@@ -94,4 +102,4 @@ a:hover {
   text-decoration: underline;
 }
 
-/*# sourceMappingURL=main.64ce8b45.css.map*/
+/*# sourceMappingURL=main.995fdc3c.css.map*/
