@@ -12,6 +12,7 @@ html {
 }
 .arrayDisplay {
   height: 20vh;
+  padding: 0 7px;
   justify-content: flex-start;
   background-color: black;
 }
@@ -71,11 +72,12 @@ body {
   background-color: slateblue;
   font-family: monospace;
   text-align: left;
-  width: 100%;
-  height: 100%;
+  border: 10px solid tomato;
+  /* width: 100%;
+  height: 100%; */
   margin: 0;
 }
-
+/* 
 #root {
   width: 100%;
   height: 100%;
@@ -83,7 +85,7 @@ body {
 .App {
   width: 100%;
   height: 100%;
-}
+} */
 
 a {
   text-decoration: none;
