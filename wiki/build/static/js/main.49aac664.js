@@ -8272,9 +8272,12 @@
 	document.addEventListener('DOMContentLoaded', function () {
 	  docObj = document.getElementsByClassName('arrayDisplay');
 	});
+	
 	function randomize() {
 	  return new Promise(function (resolve, reject) {
-	    (0, _wikijs2.default)().random().then(function (page) {
+	    (0, _wikijs2.default)({
+	      apiUrl: 'https://en.wikipedia.org/w/api.php'
+	    }).random().then(function (page) {
 	      // if random results ends in "disambiguation" run random again
 	      exports.concatArray = concatArray = wikiArray.concat(page);
 	      console.log('Starting thread...', concatArray);
@@ -8302,7 +8305,9 @@
 	
 	function randomSearch(randomPromise, cb) {
 	  // return new Promise((resolve, reject) => {
-	  (0, _wikijs2.default)().search(randomPromise, 100).then(function (data) {
+	  (0, _wikijs2.default)({
+	    apiUrl: 'https://en.wikipedia.org/w/api.php'
+	  }).search(randomPromise, 100).then(function (data) {
 	    // console.log(data.results);
 	    for (var i = 0; i < data.results.length; i++) {
 	      if (data.results[i].split(' ')[0] === randomPromise.capitalize() && data.results[i].split(' ').length > 1 && data.results[i].split(' ')[data.results[i].split(' ').length - 1] !== '(disambiguation)') {
@@ -9267,7 +9272,74 @@
 /* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';Object.defineProperty(exports,'__esModule',{value:!0}),exports.api=api,exports.pagination=pagination,exports.aggregatePagination=aggregatePagination;var _isomorphicFetch=__webpack_require__(98),_isomorphicFetch2=_interopRequireDefault(_isomorphicFetch),_querystring=__webpack_require__(104),_querystring2=_interopRequireDefault(_querystring);function _interopRequireDefault(a){return a&&a.__esModule?a:{default:a}}function _toConsumableArray(a){if(Array.isArray(a)){for(var b=0,c=Array(a.length);b<a.length;b++)c[b]=a[b];return c}return Array.from(a)}var fetchOptions={method:'GET',headers:{"User-Agent":'WikiJs/0.1 (https://github.com/dijs/wiki; richard.vanderdys@gmail.com)'}};function api(a){var b=1<arguments.length&&arguments[1]!==void 0?arguments[1]:{},c=Object.assign({},b,{format:'json',action:'query',redirects:''});a.origin&&(c.origin=a.origin);var d=a.apiUrl+'?'+_querystring2.default.stringify(c);return(0,_isomorphicFetch2.default)(d,fetchOptions).then(function(e){return e.json()}).then(function(e){if(e.error)throw new Error(e.error.info);return e})}function pagination(a,b,c){return api(a,b).then(function(d){var e={results:c(d),query:b.srsearch};if(d['continue']){var f=Object.keys(d['continue']).filter(function(h){return'continue'!==h})[0],g=d['continue'][f];b[f]=g,e.next=function(){return pagination(a,b,c)}}return e})}function aggregatePagination(a){var b=1<arguments.length&&arguments[1]!==void 0?arguments[1]:[];return a.then(function(c){var d=[].concat(_toConsumableArray(b),_toConsumableArray(c.results));return c.next?aggregatePagination(c.next(),d):d})}
+	'use strict';
+	Object.defineProperty(exports, '__esModule', {
+	    value: !0
+	}), exports.api = api, exports.pagination = pagination, exports.aggregatePagination = aggregatePagination;
+	var _isomorphicFetch = __webpack_require__(98),
+	    _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch),
+	    _querystring = __webpack_require__(104),
+	    _querystring2 = _interopRequireDefault(_querystring);
+	
+	function _interopRequireDefault(a) {
+	    return a && a.__esModule ? a : {
+	        default: a
+	    }
+	}
+	
+	function _toConsumableArray(a) {
+	    if (Array.isArray(a)) {
+	        for (var b = 0, c = Array(a.length); b < a.length; b++) c[b] = a[b];
+	        return c
+	    }
+	    return Array.from(a)
+	}
+	var fetchOptions = {
+	};
+	
+	function api(a) {
+	    var b = 1 < arguments.length && arguments[1] !== void 0 ? arguments[1] : {},
+	        c = Object.assign({}, b, {
+	            format: 'json',
+	            action: 'query',
+	            redirects: ''
+	        });
+	    a.origin && (c.origin = a.origin);
+	    var d = a.apiUrl + '?' + _querystring2.default.stringify(c);
+	    return (0, _isomorphicFetch2.default)(d, fetchOptions).then(function (e) {
+	        return e.json()
+	    }).then(function (e) {
+	        if (e.error) throw new Error(e.error.info);
+	        return e
+	    })
+	}
+	
+	function pagination(a, b, c) {
+	    return api(a, b).then(function (d) {
+	        var e = {
+	            results: c(d),
+	            query: b.srsearch
+	        };
+	        if (d['continue']) {
+	            var f = Object.keys(d['continue']).filter(function (h) {
+	                    return 'continue' !== h
+	                })[0],
+	                g = d['continue'][f];
+	            b[f] = g, e.next = function () {
+	                return pagination(a, b, c)
+	            }
+	        }
+	        return e
+	    })
+	}
+	
+	function aggregatePagination(a) {
+	    var b = 1 < arguments.length && arguments[1] !== void 0 ? arguments[1] : [];
+	    return a.then(function (c) {
+	        var d = [].concat(_toConsumableArray(b), _toConsumableArray(c.results));
+	        return c.next ? aggregatePagination(c.next(), d) : d
+	    })
+	}
 	//# sourceMappingURL=util.js.map
 
 /***/ },
@@ -22461,4 +22533,4 @@
 
 /***/ }
 /******/ ])));
-//# sourceMappingURL=main.cc164672.js.map
+//# sourceMappingURL=main.49aac664.js.map
