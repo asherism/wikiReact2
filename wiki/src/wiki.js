@@ -11,9 +11,12 @@ let docObj;
 document.addEventListener('DOMContentLoaded', () => {
   docObj = document.getElementsByClassName('arrayDisplay');
 });
+
 function randomize() {
   return new Promise((resolve, reject) => {
-    wiki()
+    wiki({
+      apiUrl: 'https://en.wikipedia.org/w/api.php',
+    })
       .random()
       .then((page) => {
         // if random results ends in "disambiguation" run random again
@@ -48,7 +51,9 @@ String.prototype.capitalize = function () {
 
 function randomSearch(randomPromise, cb) {
   // return new Promise((resolve, reject) => {
-  wiki()
+  wiki({
+    apiUrl: 'https://en.wikipedia.org/w/api.php',
+  })
     .search(randomPromise, 100)
     .then((data) => {
       // console.log(data.results);
@@ -117,4 +122,7 @@ function getConcatArray() {
   });
 }
 
-export { getConcatArray, concatArray };
+export {
+  getConcatArray,
+  concatArray
+};
