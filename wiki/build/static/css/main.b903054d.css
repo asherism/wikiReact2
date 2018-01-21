@@ -6,34 +6,54 @@ html {
 .App {
   /* padding: 5% 0 5% 2%; */
 }
+
 .App p {
   color: plum;
   margin: 10px 0 5px 0;
 }
+
 .arrayDisplay {
-  height: 20vh;
+  height: 20%;
   padding: 0 7px;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
   background-color: black;
+  border-bottom: 10px solid;
+  border-left: 10px solid;
+  border-right: 10px solid;
+  border-color: tomato;
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }
+
 .arrayDisplay a.try-again:hover {
   cursor: pointer;
 }
+
 .arrayDisplay a.try-again {
   margin-bottom: 12px;
   margin-top: 6px;
   font-size: 13px;
   color: papayawhip;
 }
+
 .arrayDisplay2 {
-  height: 80vh;
+  height: 80%;
   padding-left: 20px;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-top: 10px solid;
+  border-left: 10px solid;
+  border-right: 10px solid;
+  border-color: tomato;
 }
+
 .arrayDisplay,
 .arrayDisplay2 {
   display: -webkit-box;
@@ -44,7 +64,6 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-
   width: 100%;
   box-sizing: border-box;
 }
@@ -54,14 +73,17 @@ html {
   color: lime;
   display: block;
 }
+
 .arrayDisplay a:hover {
   text-decoration: none;
   cursor: default;
 }
+
 .arrayDisplay2 a {
   font-size: 18px;
   display: block;
 }
+
 .arrayDisplay2 p {
   color: white;
   margin-bottom: auto;
@@ -73,7 +95,7 @@ html {
     line-height: 14px;
   }
   .arrayDisplay2 a {
-    font-size: 17px;
+    font-size: 14.5px;
   }
 }
 
@@ -81,11 +103,12 @@ body {
   background-color: slateblue;
   font-family: monospace;
   text-align: left;
-  border: 10px solid tomato;
   /* width: 100%;
   height: 100%; */
   margin: 0;
 }
+
+
 /* 
 #root {
   width: 100%;
@@ -103,5 +126,4 @@ a {
 a:hover {
   text-decoration: underline;
 }
-
-/*# sourceMappingURL=main.bacee62d.css.map*/
+/*# sourceMappingURL=main.b903054d.css.map*/
